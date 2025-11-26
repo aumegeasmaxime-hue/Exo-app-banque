@@ -60,6 +60,17 @@ public class InteractionShell {
             }
         }
     }
+    private static void loadAuthMenu() {
+        System.out.println("-------------------------------------------");
+        LOGGER.info("loading auth interface");
+        System.out.println(">");
+        System.out.println("1.Create Account");
+        System.out.println(">");
+        System.out.println("2.Connect to Account ");
+        System.out.println(">");
+        System.out.println("3.Exit");
+
+    }
     private static void loadAccountMenu(){
         System.out.println("-------------------------------------------");
         LOGGER.info("loading account interface");
@@ -74,15 +85,5 @@ public class InteractionShell {
 
     }
 
-    private static void loadAuthMenu() {
-        System.out.println("-------------------------------------------");
-        LOGGER.info("loading auth interface");
-        System.out.println(">");
-        System.out.println("1.Create Account");
-        System.out.println(">");
-        System.out.println("2.Connect to Account ");
-        System.out.println(">");
-        System.out.println("3.Exit");
 
-    }
 }
