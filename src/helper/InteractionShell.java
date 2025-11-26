@@ -47,7 +47,7 @@ public class InteractionShell {
             switch (option)
             {
                 case 1 :
-                    service.createAccount();
+                    service.showBalance();
                     break;
                 case 2:
                     break;

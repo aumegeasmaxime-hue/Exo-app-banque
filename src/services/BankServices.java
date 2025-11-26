@@ -4,6 +4,7 @@ import helper.InteractionShell;
 import helper.Shellhelper;
 import model.User;
 
+import java.math.BigDecimal;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Logger;
@@ -45,9 +46,7 @@ public class BankServices {
     }
 
     private boolean isEmailValid(String email) {
-
         return email.contains("@")&&email.contains(".");
-
     }
 
     private String formedEmail(String email) {
@@ -73,7 +72,6 @@ public class BankServices {
         String email = Shellhelper.readEntry();
         System.out.println("Please enter your password: ");
         String password= Shellhelper.readEntry();
-        loggerUser = loginUser(email, password);
         loggerUser = loginUser(email,password);
         if(loggerUser!= null)
         {
@@ -101,5 +99,16 @@ public class BankServices {
     private User findUserByEmail(String email) {
 
         return users.get(email); //find the user in the Map users by the email
+    }
+    public static void initializeUsers(){
+        users.put ("admin@ex.com", new User("admin","admin","password",
+                "admin@ex.com"));
+        users.put ("test@ex.com", new User("test","test","password",
+                "test@ex.com"));
+    }
+
+    public void showBalance() {
+        BigDecimal balance = loggerUser.getAccount().getBalance();
+        System.out.printf("your actual balance is: [%.2f]",balance);
     }
 }

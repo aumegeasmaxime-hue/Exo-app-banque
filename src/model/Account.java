@@ -1,7 +1,13 @@
 package model;
 
+import java.math.BigDecimal;
+
 public class Account {
     private double balance= 0;
+
+    public BigDecimal getBalance() {
+        return BigDecimal.valueOf(balance);
+    }
 
     public void deposit(double amount){
         balance +=amount;
@@ -15,4 +21,6 @@ public class Account {
         }
         return false;
     }
+
+
 }
