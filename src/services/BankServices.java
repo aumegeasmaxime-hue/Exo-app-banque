@@ -128,6 +128,10 @@ public class BankServices {
         System.out.println("Please enter the amount you would like to transfert: ");
         double amount = Shellhelper.readDoubleEntry();
         boolean succes = transferMoney (userEmail , receiverEmail , amount);
+        if (succes) {
+            System.out.println("your transaction has been transferred successfully");
+        }
+        showBalance();
     }
 
     private boolean transferMoney(String fromEmail, String toEmail, double amount) {
@@ -144,5 +148,9 @@ public class BankServices {
         }
         LOGGER.warning("You don t have enough money to transfer.");
         return false;
+    }
+
+    public void logout() {
+        loggerUser = null;
     }
 }

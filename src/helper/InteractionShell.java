@@ -14,12 +14,10 @@ public class InteractionShell {
     public static void loadAuthInterface(){
         LOGGER.info("loading auth interface");
         boolean exit = false;
-        while (!exit)
-        {
+        while (!exit){
             loadAuthMenu();
             int option = Shellhelper.readOption();
-            switch (option)
-            {
+            switch (option){
                 case 1 :
                     service.createAccount();
                     break;
@@ -40,12 +38,10 @@ public class InteractionShell {
     public static void loadAccountInterface() {
         LOGGER.info("loading account interface");
         boolean exit = false;
-        while (!exit)
-        {
+        while (!exit){
             loadAccountMenu();
             int option = Shellhelper.readOption();
-            switch (option)
-            {
+            switch (option){
                 case 1 :
                     service.showBalance();
                     break;
@@ -56,9 +52,13 @@ public class InteractionShell {
                     service.sendMoney();
                     break;
                 case 4:
+                    service.logout();
+                    LOGGER.info("Exiting from account");
+                    System.out.println("Session closed successfully!");
+                    exit = true;
                     break;
                 default:
-                    LOGGER.warning("Invalid: "+option);
+                    LOGGER.warning("Invalid: " + option);
                     break;
             }
         }
@@ -85,8 +85,5 @@ public class InteractionShell {
         System.out.println("3.Send money");
         System.out.println(">");
         System.out.println("4.Disconnect");
-
     }
-
-
 }
