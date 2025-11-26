@@ -15,14 +15,14 @@ public class Shellhelper {
     public static int readOption() {
         try {
             return Integer.parseInt(scanner.nextLine());
-        }catch (NumberFormatException exception){
+        }
+        catch (NumberFormatException exception){
             LOGGER.warning(exception.getMessage());
             //on peut faire autrement avec un message
             //LOGGER.warning(
             //() -> String.format("error reading entry : [%s]",exception.getMessage()) );
             return IVALID_OPTION;
         }
-
     }
 
     public static String readEntry() {

@@ -16,16 +16,21 @@ public class User {
         this.email = email;
     }
 
-    public String getFirstname() {return firstname;}
-
-    public String getLastname() { return lastname;}
-
-    public String getEmail() { return email;}
-
-    public String getPassword() {return password;}
-
-    public Account getAccount() {return account;}
-
+    public String getFirstname() {
+        return firstname;
+    }
+    public String getLastname() {
+        return lastname;
+    }
+    public String getEmail() {
+        return email;
+    }
+    public String getPassword() {
+        return password;
+    }
+    public Account getAccount() {
+        return account;
+    }
 
     @Override
     public String toString() {

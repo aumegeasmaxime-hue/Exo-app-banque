@@ -24,15 +24,53 @@ public class InteractionShell {
                     service.createAccount();
                     break;
                 case 2:
+                    service.connectToAccount();
                     break;
                 case 3:
+                    LOGGER.info("Exiting application");
+                    System.out.println("Thank you for trusting us!!");
+                    exit = true;
                     break;
                 default:
                     LOGGER.warning("Invalid: "+option);
             }
-
-
         }
+    }
+
+    public static void loadAccountInterface() {
+        LOGGER.info("loading account interface");
+        boolean exit = false;
+        while (!exit)
+        {
+            loadAuthMenu();
+            int option = Shellhelper.readOption();
+            switch (option)
+            {
+                case 1 :
+                    service.createAccount();
+                    break;
+                case 2:
+                    break;
+                case 3:
+                    break;
+                case 4:
+                    break;
+                default:
+                    LOGGER.warning("Invalid: "+option);
+            }
+        }
+    }
+    private static void loadAccountMenu(){
+        System.out.println("-------------------------------------------");
+        LOGGER.info("loading account interface");
+        System.out.println(">");
+        System.out.println("1.Account balance");
+        System.out.println(">");
+        System.out.println("2.Credit account ");
+        System.out.println(">");
+        System.out.println("3.Send money");
+        System.out.println(">");
+        System.out.println("4.Disconnect");
 
     }
 
