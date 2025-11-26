@@ -32,7 +32,7 @@ public class InteractionShell {
                     exit = true;
                     break;
                 default:
-                    LOGGER.warning("Invalid: "+option);
+                    LOGGER.warning("Invalid: " + option);
             }
         }
     }
