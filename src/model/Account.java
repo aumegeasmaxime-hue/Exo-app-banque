@@ -1,5 +1,6 @@
 package model;
 
+
 import java.math.BigDecimal;
 
 public class Account {
@@ -21,6 +22,7 @@ public class Account {
         }
         return false;
     }
+
 
 
 }

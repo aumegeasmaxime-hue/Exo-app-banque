@@ -42,7 +42,7 @@ public class InteractionShell {
         boolean exit = false;
         while (!exit)
         {
-            loadAuthMenu();
+            loadAccountMenu();
             int option = Shellhelper.readOption();
             switch (option)
             {
@@ -50,13 +50,16 @@ public class InteractionShell {
                     service.showBalance();
                     break;
                 case 2:
+                    service.creditAccount();
                     break;
                 case 3:
+                    service.sendMoney();
                     break;
                 case 4:
                     break;
                 default:
                     LOGGER.warning("Invalid: "+option);
+                    break;
             }
         }
     }

@@ -87,6 +87,7 @@ public class BankServices {
         if (!isUserRegistered(email))
         {
             LOGGER.warning("this adress "+email+"is not registred");
+            return null;
         }
         User user = findUserByEmail(email);
         if ((!user.getPassword().equals(password))){
@@ -110,5 +111,38 @@ public class BankServices {
     public void showBalance() {
         BigDecimal balance = loggerUser.getAccount().getBalance();
         System.out.printf("your actual balance is: [%.2f]",balance);
+    }
+    public void creditAccount(){
+        System.out.println("Please enter the amount you would like to deposit: ");
+        double amount = Shellhelper.readDoubleEntry();
+        loggerUser.getAccount().deposit(amount);
+        System.out.println("deposited " + amount + " to the account successfully");
+        System.out.println();
+        showBalance();
+    }
+
+    public void sendMoney() {
+        String userEmail = loggerUser.getEmail();
+        System.out.println("please enter the email address you would like to transfert: ");
+        String receiverEmail = Shellhelper.readEntry();
+        System.out.println("Please enter the amount you would like to transfert: ");
+        double amount = Shellhelper.readDoubleEntry();
+        boolean succes = transferMoney (userEmail , receiverEmail , amount);
+    }
+
+    private boolean transferMoney(String fromEmail, String toEmail, double amount) {
+        if (!isUserRegistered(toEmail)){
+            LOGGER.warning("User with email: " + toEmail + " does not exist.");
+            return false;
+
+        }
+        User fromUser = findUserByEmail(fromEmail);
+        User toUser = findUserByEmail(toEmail);
+        if (fromUser.getAccount().withdraw(amount)){
+            toUser.getAccount().deposit(amount);
+            return true;
+        }
+        LOGGER.warning("You don t have enough money to transfer.");
+        return false;
     }
 }

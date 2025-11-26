@@ -28,4 +28,8 @@ public class Shellhelper {
     public static String readEntry() {
         return String.valueOf(scanner.nextLine());
     }
+
+    public static double readDoubleEntry() {
+        return Double.parseDouble(scanner.nextLine());
+    }
 }
