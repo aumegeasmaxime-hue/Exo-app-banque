@@ -1,15 +1,13 @@
 package helper;
 
 import services.BankServices;
-
-
 import java.util.logging.Logger;
 
 public class InteractionShell {
+
     private static final Logger LOGGER = Logger.getLogger(InteractionShell.class.getName());
     private static final String APP_NAME = "Bank Application v_1.0.";
     private static final BankServices service = new BankServices();
-
 
     public static void loadAuthInterface(){
         LOGGER.info("loading auth interface");
